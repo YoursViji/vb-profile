@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { FileText, Menu, X } from "lucide-react";
 
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { GithubMark } from "@/components/github-mark";
 import { nav, profile } from "@/lib/profile";
 import { cn } from "@/lib/utils";
@@ -12,9 +12,13 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/8 bg-[#071018]/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/8 bg-[#071018]/90 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <a
+          href="#top"
+          className="flex items-center gap-3"
+          onClick={() => setOpen(false)}
+        >
           <span className="grid size-9 place-items-center rounded-lg border border-cyan-400/30 bg-cyan-400/10 font-heading text-xs font-semibold tracking-[0.18em] text-cyan-200">
             VB
           </span>
@@ -62,32 +66,33 @@ export function SiteHeader() {
             Resume
           </a>
 
-          <Button
+          <button
             type="button"
-            variant="outline"
-            size="icon"
-            className="border-white/15 bg-white/5 lg:hidden"
+            className="inline-flex size-8 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-zinc-100 lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
           >
-            {open ? <X /> : <Menu />}
+            {open ? <X className="size-4" /> : <Menu className="size-4" />}
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-          </Button>
+          </button>
         </div>
       </div>
 
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-white/8 bg-[#071018] lg:hidden"
+          className="fixed inset-x-0 top-16 z-50 max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-white/10 bg-[#0b1620] shadow-[0_24px_80px_rgba(0,0,0,0.55)] lg:hidden"
         >
-          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3 sm:px-6" aria-label="Mobile">
+          <nav
+            className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3 sm:px-6"
+            aria-label="Mobile"
+          >
             {nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-md px-2 py-3 text-base text-zinc-300 hover:bg-white/5 hover:text-cyan-200"
+                className="rounded-md px-2 py-3 text-base text-zinc-200 hover:bg-white/5 hover:text-cyan-200"
                 onClick={() => setOpen(false)}
               >
                 {item.label}

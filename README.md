@@ -4,6 +4,10 @@ Public resume and portfolio site for **Vijay Baskaran Arjun Dev**, Head of Softw
 
 Source: [github.com/YoursViji/vb-profile](https://github.com/YoursViji/vb-profile)
 
+**Live site (public):** [https://yoursviji.github.io/vb-profile/](https://yoursviji.github.io/vb-profile/)
+
+`http://127.0.0.1:43217` only works on the machine running the dev server. GitHub Pages is the public copy anyone can open.
+
 ## Run locally
 
 Requires Node.js 20+.
@@ -15,12 +19,13 @@ npm install
 npm run dev
 ```
 
-The app listens on **http://127.0.0.1:43217** (not 3000).
+The app listens on **http://127.0.0.1:43217** (not 3000). That address is local-only.
 
 ```bash
 npm run build
-npm start
 ```
+
+The production site is the public GitHub Pages URL above.
 
 ## What is on the page
 
@@ -40,6 +45,7 @@ npm start
 | LinkedIn | https://www.linkedin.com/in/vijay-baskaran-arjun-dev/ |
 | Email | yoursvijii@gmail.com |
 | Phone | +91 8088413589 |
+| Live site | https://yoursviji.github.io/vb-profile/ |
 | GitHub | https://github.com/YoursViji/vb-profile |
 | Retailetics | https://retailetics.com |
 | Resume | `/VB_Google__Resume.pdf` |

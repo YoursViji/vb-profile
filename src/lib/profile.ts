@@ -10,7 +10,7 @@ export const profile = {
     legalName: "Retailetics SDN BHD",
     href: "https://retailetics.com",
   },
-  resumeHref: "/VB_Google__Resume.pdf",
+  resumeHref: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/VB_Google__Resume.pdf`,
   github: {
     href: "https://github.com/YoursViji/vb-profile",
     label: "github.com/YoursViji/vb-profile",

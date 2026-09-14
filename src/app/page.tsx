@@ -33,7 +33,7 @@ import {
   tanIntelligence,
   workGroups,
 } from "@/lib/profile";
-import { cn } from "@/lib/utils";
+import { assetPath, cn } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -116,7 +116,7 @@ function Hero() {
         <div className="relative">
           <div className="overflow-hidden rounded-2xl ring-1 ring-cyan-300/20 shadow-[0_0_80px_-24px_rgba(34,211,238,0.55)]">
             <Image
-              src="/work/smart-trolley.png"
+              src={assetPath("/work/smart-trolley.png")}
               alt="AI-infused smart trolley with scan-and-pay screen in a grocery aisle"
               width={1600}
               height={900}
@@ -213,7 +213,7 @@ function Work() {
                   className="overflow-hidden rounded-2xl bg-[#101c26] ring-1 ring-white/8"
                 >
                   <Image
-                    src={item.image}
+                    src={assetPath(item.image)}
                     alt={item.title}
                     width={1600}
                     height={900}
@@ -257,7 +257,7 @@ function TanIntelligence() {
         <div className="mt-10 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="overflow-hidden rounded-2xl ring-1 ring-white/10">
             <Image
-              src={tanIntelligence.image}
+              src={assetPath(tanIntelligence.image)}
               alt="Concept UI for an AI forex trading indicator on a dark terminal"
               width={1600}
               height={900}

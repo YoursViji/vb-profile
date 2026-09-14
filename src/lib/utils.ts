@@ -1,1 +1,7 @@
-export { cn } from "cn"
+export { cn } from "cn";
+
+export function assetPath(path: string) {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  if (!path.startsWith("/")) return path;
+  return `${base}${path}`;
+}

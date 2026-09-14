@@ -2,11 +2,15 @@
 
 Public resume and portfolio site for **Vijay Baskaran Arjun Dev**, Head of Software Technologies at Retailetics SDN BHD. Dark in-store retail-tech presentation, plus an independent TAN Intelligence venture.
 
+Source: [github.com/YoursViji/vb-profile](https://github.com/YoursViji/vb-profile)
+
 ## Run locally
 
 Requires Node.js 20+.
 
 ```bash
+git clone https://github.com/YoursViji/vb-profile.git
+cd vb-profile
 npm install
 npm run dev
 ```
@@ -36,7 +40,7 @@ npm start
 | LinkedIn | https://www.linkedin.com/in/vijay-baskaran-arjun-dev/ |
 | Email | yoursvijii@gmail.com |
 | Phone | +91 8088413589 |
-| GitHub | No username on the resume — control is not linked |
+| GitHub | https://github.com/YoursViji/vb-profile |
 | Retailetics | https://retailetics.com |
 | Resume | `/VB_Google__Resume.pdf` |
 

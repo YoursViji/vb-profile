@@ -56,31 +56,18 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
-            {profile.github.href ? (
-              <a
-                href={profile.github.href}
-                target="_blank"
-                rel="noreferrer"
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: "icon" }),
-                  "text-zinc-300"
-                )}
-                aria-label="GitHub"
-              >
-                <GithubMark className="size-4" />
-              </a>
-            ) : (
-              <span
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: "icon" }),
-                  "cursor-not-allowed text-zinc-500 opacity-60"
-                )}
-                title={profile.github.note}
-                aria-label={profile.github.note}
-              >
-                <GithubMark className="size-4" />
-              </span>
-            )}
+            <a
+              href={profile.github.href}
+              target="_blank"
+              rel="noreferrer"
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "text-zinc-300"
+              )}
+              aria-label="GitHub"
+            >
+              <GithubMark className="size-4" />
+            </a>
             <a
               href={profile.linkedin.href}
               target="_blank"

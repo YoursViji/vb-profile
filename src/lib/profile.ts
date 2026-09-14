@@ -12,9 +12,8 @@ export const profile = {
   },
   resumeHref: "/VB_Google__Resume.pdf",
   github: {
-    href: null as string | null,
-    label: "GitHub",
-    note: "A GitHub username was not listed on the resume, so this control is not linked to a personal repository.",
+    href: "https://github.com/YoursViji/vb-profile",
+    label: "github.com/YoursViji/vb-profile",
   },
   linkedin: {
     href: "https://www.linkedin.com/in/vijay-baskaran-arjun-dev/",

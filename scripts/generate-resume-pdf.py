@@ -67,7 +67,7 @@ def main():
             s["head"],
         ),
         Paragraph(
-            "+91 8088413589 &nbsp;·&nbsp; yoursvijii@gmail.com &nbsp;·&nbsp; linkedin.com/in/vijay-baskaran-arjun-dev<br/>Federal Territory of Kuala Lumpur, Malaysia",
+            "+91 8088413589 &nbsp;·&nbsp; yoursvijii@gmail.com &nbsp;·&nbsp; linkedin.com/in/vijay-baskaran-arjun-dev<br/>github.com/YoursViji/vb-profile &nbsp;·&nbsp; Federal Territory of Kuala Lumpur, Malaysia",
             s["meta"],
         ),
         Paragraph("EXPERIENCE", s["h"]),
@@ -120,7 +120,7 @@ def main():
         Paragraph("Master prompting — Claude and Coursera", s["body"]),
         Spacer(1, 8),
         Paragraph(
-            "Contact: yoursvijii@gmail.com · +91 8088413589 · linkedin.com/in/vijay-baskaran-arjun-dev",
+            "Contact: yoursvijii@gmail.com · +91 8088413589 · linkedin.com/in/vijay-baskaran-arjun-dev · github.com/YoursViji/vb-profile",
             s["meta"],
         ),
     ]

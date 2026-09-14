@@ -99,10 +99,19 @@ function Hero() {
               <LinkedinMark className="size-4" />
               LinkedIn
             </a>
+            <a
+              href={profile.github.href}
+              target="_blank"
+              rel="noreferrer"
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "h-11 border-white/15 bg-white/4 px-4 text-sm text-zinc-100"
+              )}
+            >
+              <GithubMark className="size-4" />
+              GitHub
+            </a>
           </div>
-          <p className="mt-3 max-w-md text-xs text-zinc-500">
-            {profile.github.note}
-          </p>
         </div>
         <div className="relative">
           <div className="overflow-hidden rounded-2xl ring-1 ring-cyan-300/20 shadow-[0_0_80px_-24px_rgba(34,211,238,0.55)]">
@@ -402,7 +411,8 @@ function Contact() {
           Based in Kuala Lumpur
         </h2>
         <p className="mt-3 max-w-xl text-zinc-400">
-          {profile.location}. Email, phone, and LinkedIn are on the resume.
+          {profile.location}. Email, phone, LinkedIn, and GitHub are on this
+          page.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a
@@ -435,6 +445,18 @@ function Contact() {
             LinkedIn
           </a>
           <a
+            href={profile.github.href}
+            target="_blank"
+            rel="noreferrer"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              "h-11 border-white/15 bg-white/4 px-4 text-zinc-100"
+            )}
+          >
+            <GithubMark className="size-4" />
+            GitHub
+          </a>
+          <a
             href={profile.resumeHref}
             target="_blank"
             rel="noreferrer"
@@ -448,9 +470,16 @@ function Contact() {
           </a>
         </div>
         <div className="mt-8 space-y-2 text-sm text-zinc-500">
-          <p className="flex items-center gap-2">
-            <GithubMark className="size-4 opacity-70" />
-            {profile.github.note}
+          <p>
+            <a
+              href={profile.github.href}
+              className="text-cyan-200/80 underline-offset-4 hover:underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {profile.github.label}
+            </a>
+            <ArrowUpRight className="ml-1 inline size-3.5" />
           </p>
           <p>
             <a

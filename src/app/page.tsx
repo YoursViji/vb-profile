@@ -3,7 +3,9 @@ import Image from "next/image";
 import {
   ArrowUpRight,
   FileText,
+  Mail,
   MapPin,
+  Phone,
   Sparkles,
 } from "lucide-react";
 
@@ -18,6 +20,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { buttonVariants } from "@/components/ui/button";
 import { GithubMark } from "@/components/github-mark";
+import { LinkedinMark } from "@/components/linkedin-mark";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import {
@@ -85,7 +88,7 @@ function Hero() {
               View resume
             </a>
             <a
-              href={profile.github.href}
+              href={profile.linkedin.href}
               target="_blank"
               rel="noreferrer"
               className={cn(
@@ -93,15 +96,13 @@ function Hero() {
                 "h-11 border-white/15 bg-white/4 px-4 text-sm text-zinc-100"
               )}
             >
-              <GithubMark className="size-4" />
-              {profile.github.label}
+              <LinkedinMark className="size-4" />
+              LinkedIn
             </a>
           </div>
-          {profile.github.isPlaceholder ? (
-            <p className="mt-3 max-w-md text-xs text-zinc-500">
-              {profile.github.note}
-            </p>
-          ) : null}
+          <p className="mt-3 max-w-md text-xs text-zinc-500">
+            {profile.github.note}
+          </p>
         </div>
         <div className="relative">
           <div className="overflow-hidden rounded-2xl ring-1 ring-cyan-300/20 shadow-[0_0_80px_-24px_rgba(34,211,238,0.55)]">
@@ -184,8 +185,8 @@ function Work() {
           In-store systems I build software around
         </h2>
         <p className="mt-3 max-w-2xl text-zinc-400">
-          Product stories from the Retailetics domain — smart carts, kiosks,
-          locking, and wayfinding — not extra employers.
+          Product stories from the Retailetics work: ezyCart, indoor navigation,
+          floor tools, and Lisa — not extra employers.
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {featuredWork.map((item) => (
@@ -390,21 +391,28 @@ function Contact() {
           Based in Kuala Lumpur
         </h2>
         <p className="mt-3 max-w-xl text-zinc-400">
-          {profile.location}. Software for stores that want scan-pay-go without
-          throwing away the floor they already have.
+          {profile.location}. Email, phone, and LinkedIn are on the resume.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a
-            href={profile.resumeHref}
-            target="_blank"
-            rel="noreferrer"
+            href={`mailto:${profile.email}`}
             className={cn(buttonVariants({ size: "lg" }), "h-11 px-4")}
           >
-            <FileText data-icon="inline-start" />
-            Open VB_Google__Resume.pdf
+            <Mail data-icon="inline-start" />
+            {profile.email}
           </a>
           <a
-            href={profile.company.href}
+            href={`tel:${profile.phone.replace(/\s+/g, "")}`}
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              "h-11 border-white/15 bg-white/4 px-4 text-zinc-100"
+            )}
+          >
+            <Phone data-icon="inline-start" />
+            {profile.phone}
+          </a>
+          <a
+            href={profile.linkedin.href}
             target="_blank"
             rel="noreferrer"
             className={cn(
@@ -412,40 +420,37 @@ function Contact() {
               "h-11 border-white/15 bg-white/4 px-4 text-zinc-100"
             )}
           >
-            Retailetics
-            <ArrowUpRight data-icon="inline-end" />
+            <LinkedinMark className="size-4" />
+            LinkedIn
+          </a>
+          <a
+            href={profile.resumeHref}
+            target="_blank"
+            rel="noreferrer"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              "h-11 border-white/15 bg-white/4 px-4 text-zinc-100"
+            )}
+          >
+            <FileText data-icon="inline-start" />
+            VB_Google__Resume.pdf
           </a>
         </div>
         <div className="mt-8 space-y-2 text-sm text-zinc-500">
-          <p>
-            GitHub:{" "}
-            {profile.github.isPlaceholder ? (
-              <a
-                href={profile.github.href}
-                className="text-cyan-200/80 underline-offset-4 hover:underline"
-                target="_blank"
-                rel="noreferrer"
-              >
-                github.com
-              </a>
-            ) : (
-              <a
-                href={profile.github.href}
-                className="text-cyan-200/80 underline-offset-4 hover:underline"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {profile.github.label}
-              </a>
-            )}
-            {profile.github.isPlaceholder
-              ? " — profile URL was not on the resume, so this is a working GitHub home link."
-              : null}
+          <p className="flex items-center gap-2">
+            <GithubMark className="size-4 opacity-70" />
+            {profile.github.note}
           </p>
           <p>
-            {profile.linkedin
-              ? `LinkedIn: ${profile.linkedin.label}`
-              : "LinkedIn: public profile URL was not listed on the resume, so it is omitted here."}
+            <a
+              href={profile.company.href}
+              className="text-cyan-200/80 underline-offset-4 hover:underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {profile.company.legalName}
+            </a>
+            <ArrowUpRight className="ml-1 inline size-3.5" />
           </p>
         </div>
       </div>

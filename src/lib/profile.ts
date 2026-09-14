@@ -62,7 +62,7 @@ export const workGroups = [
       {
         slug: "self-checkout-kiosk",
         title: "Self-checkout kiosk",
-        image: "/work/self-checkout-kiosk.png",
+        image: "/work/self-checkout-kiosk-hero.png",
         tag: "Station checkout",
         copy: "The same scan-bag-pay flow on a fixed kiosk: trays, scale, and screen so shoppers who are not on a cart still leave without a cashier line.",
       },

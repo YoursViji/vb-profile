@@ -27,11 +27,11 @@ import {
   certifications,
   education,
   experience,
-  featuredWork,
   goals,
   profile,
   skillGroups,
   tanIntelligence,
+  workGroups,
 } from "@/lib/profile";
 import { cn } from "@/lib/utils";
 
@@ -176,50 +176,80 @@ function Experience() {
   );
 }
 
+type WorkItem = (typeof workGroups)[number]["items"][number];
+
 function Work() {
   return (
     <section id="work" className="scroll-mt-28 border-t border-white/8">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionKicker>Featured work</SectionKicker>
         <h2 className="font-heading mt-3 max-w-2xl text-3xl tracking-tight text-zinc-50">
-          In-store systems I build software around
+          In-store systems, shopper apps, and the lite SDK
         </h2>
         <p className="mt-3 max-w-2xl text-zinc-400">
-          Product stories from the Retailetics work: ezyCart, indoor navigation,
-          floor tools, and Lisa — not extra employers.
+          Product stories from the Retailetics work — kiosk, cart, recipes,
+          payments, wayfinding, ads, audit, voice, fleet ops, ezyList, and a
+          Flutter SDK for small vendors. Not extra employers.
         </p>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {featuredWork.map((item) => (
-            <article
-              key={item.slug}
-              className="overflow-hidden rounded-2xl bg-[#101c26] ring-1 ring-white/8"
-            >
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={1600}
-                height={900}
-                className="aspect-video w-full object-cover"
-              />
-              <div className="space-y-3 p-5">
-                <Badge
-                  variant="outline"
-                  className="border-amber-300/25 bg-amber-300/8 text-amber-100"
-                >
-                  {item.tag}
-                </Badge>
-                <h3 className="font-heading text-xl text-zinc-50">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-zinc-400">
-                  {item.copy}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
+        {workGroups.map((group) => (
+          <div key={group.title} className="mt-12">
+            <h3 className="font-heading text-xl tracking-tight text-zinc-50">
+              {group.title}
+            </h3>
+            <p className="mt-2 max-w-2xl text-sm text-zinc-400">
+              {group.intro}
+            </p>
+            <div className="mt-6 grid gap-6 md:grid-cols-2">
+              {group.items.map((item) => (
+                <WorkCard key={item.slug} item={item} />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
+  );
+}
+
+function WorkCard({ item }: { item: WorkItem }) {
+  const featured = "featured" in item && item.featured;
+  const alt = "alt" in item ? item.alt : item.title;
+
+  return (
+    <article
+      className={cn(
+        "overflow-hidden rounded-2xl bg-[#101c26] ring-1 ring-white/8",
+        featured && "md:col-span-2 md:grid md:grid-cols-2 md:items-stretch",
+      )}
+    >
+      <Image
+        src={item.image}
+        alt={alt}
+        width={featured ? 900 : 1600}
+        height={featured ? 1600 : 900}
+        className={cn(
+          "w-full object-cover",
+          featured
+            ? "aspect-[3/4] max-h-[34rem] object-[center_42%] sm:aspect-[4/3] md:aspect-auto md:h-full md:max-h-none md:min-h-[28rem]"
+            : "aspect-video",
+        )}
+      />
+      <div
+        className={cn(
+          "space-y-3 p-5",
+          featured && "flex flex-col justify-center md:p-8",
+        )}
+      >
+        <Badge
+          variant="outline"
+          className="border-amber-300/25 bg-amber-300/8 text-amber-100"
+        >
+          {item.tag}
+        </Badge>
+        <h3 className="font-heading text-xl text-zinc-50">{item.title}</h3>
+        <p className="text-sm leading-relaxed text-zinc-400">{item.copy}</p>
+      </div>
+    </article>
   );
 }
 

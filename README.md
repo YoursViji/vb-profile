@@ -21,7 +21,7 @@ npm start
 ## What is on the page
 
 - **Experience:** Retailetics SDN BHD only, **February 2021 – Present**. No other employers.
-- **Featured work:** ezyCart, indoor navigation, Flutter staff app & Android TV cart monitor, Lisa AI — aligned with the resume, not extra jobs.
+- **Featured work:** self-checkout kiosk, ezyCart, AI recipe builder, Tap to Pay / NFC, product finder, in-aisle ads, stock audit, voice assist, fleet monitoring, Lisa AI, Flutter SDK lite, ezyList, staff app & Android TV monitor — Retailetics work, not extra jobs.
 - **TAN Intelligence:** independent company / founder work. No dates.
 - **Goals:** short-term AI/ML mastery; long-term indicator → signals → bot. Unchanged from the prior request.
 - **Education:** B.E. Computer Science and Engineering, Anna University Chennai (no dates).
@@ -33,7 +33,7 @@ npm start
 
 | Control | URL |
 | --- | --- |
-| LinkedIn | https://www.linkedin.com/in/vijaybaskar |
+| LinkedIn | https://www.linkedin.com/in/vijay-baskaran-arjun-dev/ |
 | Email | yoursvijii@gmail.com |
 | Phone | +91 8088413589 |
 | GitHub | No username on the resume — control is not linked |

@@ -125,7 +125,7 @@ function Hero() {
 
 function Experience() {
   return (
-    <section id="experience" className="scroll-mt-24 border-t border-white/8">
+    <section id="experience" className="scroll-mt-28 border-t border-white/8">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionKicker>Experience</SectionKicker>
         <h2 className="font-heading mt-3 text-3xl tracking-tight text-zinc-50">
@@ -177,7 +177,7 @@ function Experience() {
 
 function Work() {
   return (
-    <section id="work" className="scroll-mt-24 border-t border-white/8">
+    <section id="work" className="scroll-mt-28 border-t border-white/8">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionKicker>Featured work</SectionKicker>
         <h2 className="font-heading mt-3 max-w-2xl text-3xl tracking-tight text-zinc-50">
@@ -224,7 +224,7 @@ function Work() {
 
 function TanIntelligence() {
   return (
-    <section id="tan" className="scroll-mt-24 border-t border-white/8">
+    <section id="tan" className="scroll-mt-28 border-t border-white/8">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionKicker>Independent venture</SectionKicker>
         <h2 className="font-heading mt-3 text-3xl tracking-tight text-zinc-50">
@@ -280,7 +280,7 @@ function TanIntelligence() {
 
 function Goals() {
   return (
-    <section id="goals" className="scroll-mt-24 border-t border-white/8">
+    <section id="goals" className="scroll-mt-28 border-t border-white/8">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionKicker>Goals</SectionKicker>
         <h2 className="font-heading mt-3 text-3xl tracking-tight text-zinc-50">
@@ -322,7 +322,7 @@ function Goals() {
 
 function Skills() {
   return (
-    <section id="skills" className="scroll-mt-24 border-t border-white/8">
+    <section id="skills" className="scroll-mt-28 border-t border-white/8">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionKicker>Skills</SectionKicker>
         <h2 className="font-heading mt-3 text-3xl tracking-tight text-zinc-50">
@@ -355,7 +355,7 @@ function Skills() {
 
 function EducationCerts() {
   return (
-    <section id="education" className="scroll-mt-24 border-t border-white/8">
+    <section id="education" className="scroll-mt-28 border-t border-white/8">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
         <div>
           <SectionKicker>Education</SectionKicker>
@@ -383,7 +383,7 @@ function EducationCerts() {
 
 function Contact() {
   return (
-    <section id="contact" className="scroll-mt-24 border-t border-white/8">
+    <section id="contact" className="scroll-mt-28 border-t border-white/8">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionKicker>Contact</SectionKicker>
         <h2 className="font-heading mt-3 text-3xl tracking-tight text-zinc-50">

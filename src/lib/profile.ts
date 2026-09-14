@@ -53,20 +53,18 @@ export const workGroups = [
       "ezyCart, kiosks, recipes, payments, wayfinding, ads, audit, voice, and fleet ops — Retailetics work, not extra employers.",
     items: [
       {
-        slug: "self-checkout-kiosk",
-        title: "Self-checkout kiosk",
-        image: "/work/self-checkout-kiosk-photo.png",
-        tag: "Station checkout",
-        featured: true,
-        alt: "Retailetics self-checkout kiosk with Tray 1, Tray 2, a lime shopping basket, and the scan screen",
-        copy: "The same scan-bag-pay flow on a fixed kiosk: trays, scale, and screen so shoppers who are not on a cart still leave without a cashier line.",
-      },
-      {
         slug: "smart-trolley",
         title: "ezyCart smart trolley",
         image: "/work/smart-trolley.png",
         tag: "AI self-checkout",
         copy: "Retailetics’ AI-infused self-checkout cart. Architecture, UX, and a live socket pipeline from IoT hardware into the ezyCart Android app — scan, pay, and skip the queue.",
+      },
+      {
+        slug: "self-checkout-kiosk",
+        title: "Self-checkout kiosk",
+        image: "/work/self-checkout-kiosk.png",
+        tag: "Station checkout",
+        copy: "The same scan-bag-pay flow on a fixed kiosk: trays, scale, and screen so shoppers who are not on a cart still leave without a cashier line.",
       },
       {
         slug: "ai-recipe",

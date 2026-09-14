@@ -176,8 +176,6 @@ function Experience() {
   );
 }
 
-type WorkItem = (typeof workGroups)[number]["items"][number];
-
 function Work() {
   return (
     <section id="work" className="scroll-mt-28 border-t border-white/8">
@@ -201,55 +199,38 @@ function Work() {
             </p>
             <div className="mt-6 grid gap-6 md:grid-cols-2">
               {group.items.map((item) => (
-                <WorkCard key={item.slug} item={item} />
+                <article
+                  key={item.slug}
+                  className="overflow-hidden rounded-2xl bg-[#101c26] ring-1 ring-white/8"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={1600}
+                    height={900}
+                    className="aspect-video w-full object-cover"
+                  />
+                  <div className="space-y-3 p-5">
+                    <Badge
+                      variant="outline"
+                      className="border-amber-300/25 bg-amber-300/8 text-amber-100"
+                    >
+                      {item.tag}
+                    </Badge>
+                    <h3 className="font-heading text-xl text-zinc-50">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-zinc-400">
+                      {item.copy}
+                    </p>
+                  </div>
+                </article>
               ))}
             </div>
           </div>
         ))}
       </div>
     </section>
-  );
-}
-
-function WorkCard({ item }: { item: WorkItem }) {
-  const featured = "featured" in item && item.featured;
-  const alt = "alt" in item ? item.alt : item.title;
-
-  return (
-    <article
-      className={cn(
-        "overflow-hidden rounded-2xl bg-[#101c26] ring-1 ring-white/8",
-        featured && "md:col-span-2 md:grid md:grid-cols-2 md:items-stretch",
-      )}
-    >
-      <Image
-        src={item.image}
-        alt={alt}
-        width={featured ? 900 : 1600}
-        height={featured ? 1600 : 900}
-        className={cn(
-          "w-full object-cover",
-          featured
-            ? "aspect-[3/4] max-h-[34rem] object-[center_42%] sm:aspect-[4/3] md:aspect-auto md:h-full md:max-h-none md:min-h-[28rem]"
-            : "aspect-video",
-        )}
-      />
-      <div
-        className={cn(
-          "space-y-3 p-5",
-          featured && "flex flex-col justify-center md:p-8",
-        )}
-      >
-        <Badge
-          variant="outline"
-          className="border-amber-300/25 bg-amber-300/8 text-amber-100"
-        >
-          {item.tag}
-        </Badge>
-        <h3 className="font-heading text-xl text-zinc-50">{item.title}</h3>
-        <p className="text-sm leading-relaxed text-zinc-400">{item.copy}</p>
-      </div>
-    </article>
   );
 }
 

@@ -1,25 +1,20 @@
 "use client";
 
-import { FileText, Menu } from "lucide-react";
+import { useState } from "react";
+import { FileText, Menu, X } from "lucide-react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { GithubMark } from "@/components/github-mark";
 import { nav, profile } from "@/lib/profile";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-40 border-b border-white/8 bg-[#071018]/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-3">
+        <a href="#top" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <span className="grid size-9 place-items-center rounded-lg border border-cyan-400/30 bg-cyan-400/10 font-heading text-xs font-semibold tracking-[0.18em] text-cyan-200">
             VB
           </span>
@@ -67,56 +62,49 @@ export function SiteHeader() {
             Resume
           </a>
 
-          <Sheet>
-            <SheetTrigger
-              nativeButton={false}
-              render={
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="lg:hidden border-white/15 bg-white/5"
-                />
-              }
-            >
-              <Menu />
-              <span className="sr-only">Open menu</span>
-            </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="border-white/10 bg-[#0b1620] text-zinc-100"
-            >
-              <SheetHeader>
-                <SheetTitle>Navigate</SheetTitle>
-              </SheetHeader>
-              <nav className="flex flex-col gap-1 px-4" aria-label="Mobile">
-                {nav.map((item) => (
-                  <SheetClose
-                    key={item.href}
-                    nativeButton={false}
-                    render={<a href={item.href} />}
-                    className="rounded-md px-2 py-3 text-base text-zinc-300 hover:bg-white/5 hover:text-cyan-200"
-                  >
-                    {item.label}
-                  </SheetClose>
-                ))}
-                <SheetClose
-                  nativeButton={false}
-                  render={
-                    <a
-                      href={profile.resumeHref}
-                      target="_blank"
-                      rel="noreferrer"
-                    />
-                  }
-                  className="mt-2 rounded-md bg-cyan-300 px-2 py-3 text-center text-base font-medium text-slate-950"
-                >
-                  View resume
-                </SheetClose>
-              </nav>
-            </SheetContent>
-          </Sheet>
+          <Button
+            type="button"
+            variant="outline"
+            size="icon"
+            className="border-white/15 bg-white/5 lg:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((value) => !value)}
+          >
+            {open ? <X /> : <Menu />}
+            <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+          </Button>
         </div>
       </div>
+
+      {open ? (
+        <div
+          id="mobile-nav"
+          className="border-t border-white/8 bg-[#071018] lg:hidden"
+        >
+          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3 sm:px-6" aria-label="Mobile">
+            {nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="rounded-md px-2 py-3 text-base text-zinc-300 hover:bg-white/5 hover:text-cyan-200"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href={profile.resumeHref}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-1 rounded-md bg-cyan-300 px-2 py-3 text-center text-base font-medium text-slate-950"
+              onClick={() => setOpen(false)}
+            >
+              View resume
+            </a>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }

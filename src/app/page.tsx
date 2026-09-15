@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { buttonVariants } from "@/components/ui/button";
-import { GithubMark } from "@/components/github-mark";
 import { LinkedinMark } from "@/components/linkedin-mark";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -98,18 +97,6 @@ function Hero() {
             >
               <LinkedinMark className="size-4" />
               LinkedIn
-            </a>
-            <a
-              href={profile.github.href}
-              target="_blank"
-              rel="noreferrer"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "h-11 border-white/15 bg-white/4 px-4 text-sm text-zinc-100"
-              )}
-            >
-              <GithubMark className="size-4" />
-              GitHub
             </a>
           </div>
         </div>
@@ -411,8 +398,7 @@ function Contact() {
           Based in Kuala Lumpur
         </h2>
         <p className="mt-3 max-w-xl text-zinc-400">
-          {profile.location}. Email, phone, LinkedIn, and GitHub are on this
-          page.
+          {profile.location}. Email, phone, and LinkedIn are on this page.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a
@@ -448,18 +434,6 @@ function Contact() {
             LinkedIn
           </a>
           <a
-            href={profile.github.href}
-            target="_blank"
-            rel="noreferrer"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "h-11 border-white/15 bg-white/4 px-4 text-zinc-100"
-            )}
-          >
-            <GithubMark className="size-4" />
-            GitHub
-          </a>
-          <a
             href={profile.resumeHref}
             target="_blank"
             rel="noreferrer"
@@ -473,17 +447,6 @@ function Contact() {
           </a>
         </div>
         <div className="mt-8 space-y-2 text-sm text-zinc-500">
-          <p>
-            <a
-              href={profile.github.href}
-              className="text-cyan-200/80 underline-offset-4 hover:underline"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {profile.github.label}
-            </a>
-            <ArrowUpRight className="ml-1 inline size-3.5" />
-          </p>
           <p>
             <a
               href={profile.company.href}

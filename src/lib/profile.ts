@@ -5,6 +5,10 @@ export const profile = {
   location: "Federal Territory of Kuala Lumpur, Malaysia",
   email: "yoursvijii@gmail.com",
   phone: "+91 8088413589",
+  phones: [
+    { display: "+91 8088413589", href: "tel:+918088413589" },
+    { display: "+60 1151135376", href: "tel:+601151135376" },
+  ],
   company: {
     name: "Retailetics",
     legalName: "Retailetics SDN BHD",

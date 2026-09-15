@@ -422,16 +422,19 @@ function Contact() {
             <Mail data-icon="inline-start" />
             {profile.email}
           </a>
-          <a
-            href={`tel:${profile.phone.replace(/\s+/g, "")}`}
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "h-11 border-white/15 bg-white/4 px-4 text-zinc-100"
-            )}
-          >
-            <Phone data-icon="inline-start" />
-            {profile.phone}
-          </a>
+          {profile.phones.map((phone) => (
+            <a
+              key={phone.display}
+              href={phone.href}
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "h-11 border-white/15 bg-white/4 px-4 text-zinc-100"
+              )}
+            >
+              <Phone data-icon="inline-start" />
+              {phone.display}
+            </a>
+          ))}
           <a
             href={profile.linkedin.href}
             target="_blank"

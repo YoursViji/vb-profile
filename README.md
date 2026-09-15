@@ -44,7 +44,7 @@ The production site is the public GitHub Pages URL above.
 | --- | --- |
 | LinkedIn | https://www.linkedin.com/in/vijay-baskaran-arjun-dev/ |
 | Email | yoursvijii@gmail.com |
-| Phone | +91 8088413589 |
+| Phone | +91 8088413589 · +60 1151135376 |
 | Live site | https://yoursviji.github.io/vb-profile/ |
 | GitHub | https://github.com/YoursViji/vb-profile |
 | Retailetics | https://retailetics.com |

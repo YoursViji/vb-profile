@@ -4,7 +4,6 @@ import { useState } from "react";
 import { FileText, Menu, X } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
-import { GithubMark } from "@/components/github-mark";
 import { LinkedinMark } from "@/components/linkedin-mark";
 import { nav, profile } from "@/lib/profile";
 import { cn } from "@/lib/utils";
@@ -56,18 +55,6 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <a
-              href={profile.github.href}
-              target="_blank"
-              rel="noreferrer"
-              className={cn(
-                buttonVariants({ variant: "ghost", size: "icon" }),
-                "text-zinc-300"
-              )}
-              aria-label="GitHub"
-            >
-              <GithubMark className="size-4" />
-            </a>
             <a
               href={profile.linkedin.href}
               target="_blank"

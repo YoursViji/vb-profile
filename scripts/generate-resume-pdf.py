@@ -11,7 +11,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
 
-OUT = "/workspace/public/VB_Google__Resume.pdf"
+OUT = "/tmp/vb-profile/public/VB_Google__Resume.pdf"
 INK = HexColor("#111827")
 MUTED = HexColor("#4b5563")
 ACCENT = HexColor("#0e7490")
@@ -21,32 +21,32 @@ def styles():
     base = getSampleStyleSheet()
     return {
         "name": ParagraphStyle(
-            "Name", parent=base["Title"], fontName="Times-Bold", fontSize=16,
-            textColor=INK, alignment=1, spaceAfter=2, leading=20,
+            "Name", parent=base["Title"], fontName="Times-Bold", fontSize=15,
+            textColor=INK, alignment=1, spaceAfter=1, leading=18,
         ),
         "head": ParagraphStyle(
-            "Head", parent=base["Normal"], fontName="Times-Italic", fontSize=10,
-            textColor=MUTED, alignment=1, spaceAfter=2, leading=13,
+            "Head", parent=base["Normal"], fontName="Times-Italic", fontSize=9.5,
+            textColor=MUTED, alignment=1, spaceAfter=2, leading=12,
         ),
         "meta": ParagraphStyle(
-            "Meta", parent=base["Normal"], fontName="Times-Roman", fontSize=9,
-            textColor=MUTED, alignment=1, spaceAfter=10, leading=12,
+            "Meta", parent=base["Normal"], fontName="Times-Roman", fontSize=8.7,
+            textColor=MUTED, alignment=1, spaceAfter=6, leading=11,
         ),
         "h": ParagraphStyle(
-            "H", parent=base["Heading2"], fontName="Times-Bold", fontSize=11,
-            textColor=ACCENT, spaceBefore=8, spaceAfter=4, leading=14,
+            "H", parent=base["Heading2"], fontName="Times-Bold", fontSize=10.5,
+            textColor=ACCENT, spaceBefore=6, spaceAfter=3, leading=13,
         ),
         "body": ParagraphStyle(
-            "Body", parent=base["Normal"], fontName="Times-Roman", fontSize=9.5,
-            textColor=INK, leading=12.5, spaceAfter=3,
+            "Body", parent=base["Normal"], fontName="Times-Roman", fontSize=9,
+            textColor=INK, leading=11.6, spaceAfter=2,
         ),
         "role": ParagraphStyle(
             "Role", parent=base["Normal"], fontName="Times-Bold", fontSize=10,
-            textColor=INK, leading=13, spaceAfter=1,
+            textColor=INK, leading=12.5, spaceAfter=1,
         ),
         "sub": ParagraphStyle(
-            "Sub", parent=base["Normal"], fontName="Times-Italic", fontSize=9,
-            textColor=MUTED, leading=12, spaceAfter=4,
+            "Sub", parent=base["Normal"], fontName="Times-Italic", fontSize=8.7,
+            textColor=MUTED, leading=11.2, spaceAfter=3,
         ),
     }
 
@@ -55,15 +55,15 @@ def main():
     s = styles()
     doc = SimpleDocTemplate(
         OUT, pagesize=letter,
-        leftMargin=0.65 * inch, rightMargin=0.65 * inch,
-        topMargin=0.5 * inch, bottomMargin=0.5 * inch,
+        leftMargin=0.6 * inch, rightMargin=0.6 * inch,
+        topMargin=0.42 * inch, bottomMargin=0.42 * inch,
         title="Vijay Baskaran Arjun Dev",
         author="Vijay Baskaran Arjun Dev",
     )
     story = [
         Paragraph("Vijay Baskaran Arjun Dev", s["name"]),
         Paragraph(
-            "Head of Software Technologies @ Retailetics | AI/ML Developer | Mobile Systems &amp; Scaled Engineering",
+            "Principal Staff Software Engineer @ Retailetics | Algorithmic AI Trader &amp; Quantitative Developer | AI/ML Developer | Mobile Systems &amp; Scaled Engineering",
             s["head"],
         ),
         Paragraph(
@@ -71,7 +71,7 @@ def main():
             s["meta"],
         ),
         Paragraph("EXPERIENCE", s["h"]),
-        Paragraph("Head of Software Technologies — Retailetics SDN BHD", s["role"]),
+        Paragraph("Principal Staff Software Engineer — Retailetics SDN BHD", s["role"]),
         Paragraph("Kuala Lumpur, Malaysia &nbsp;·&nbsp; February 2021 – Present", s["sub"]),
         Paragraph(
             "Retailetics AI-infused Self-Checkout Smart Trolley (ezyCart). Spearheaded an AI-powered self-checkout shopping cart: architecture, stakeholder design, and UX. Built a real-time socket pipeline between IoT devices and the ezyCart Android app for fast sync without slow transfers or redundant permission requests.",
@@ -98,11 +98,26 @@ def main():
             "Led split testing initiatives driving multi-million-dollar revenue growth and stronger in-store customer experiences.",
             s["body"],
         ),
-        Paragraph("INDEPENDENT VENTURE", s["h"]),
-        Paragraph("Founder — TAN Intelligence", s["role"]),
-        Paragraph("AI-powered forex trading indicator", s["sub"]),
+        Paragraph("TAN INTELLIGENCE", s["h"]),
+        Paragraph("Custom trading indicators", s["role"]),
         Paragraph(
-            "TAN Intelligence is an independent company building an original Artificial Intelligence trading indicator for the forex market. Direction: indicator, then signals, then an automated bot with explicit risk controls. Founder work, not a second employer.",
+            "<b>End-to-End Quantitative Systems:</b> Engineered and deployed proprietary algorithmic trading models and custom indicators across Commodities, FX, and Crypto, operating systematically for over 6 years.",
+            s["body"],
+        ),
+        Paragraph(
+            "<b>Automated Architecture &amp; Telegram Pipelines:</b> Built custom 5-minute and 15-minute signal engine pipelines integrated with Telegram alerts and low-latency automated execution AI-bots via REST and WebSockets.",
+            s["body"],
+        ),
+        Paragraph(
+            "<b>Strategy &amp; Market Structure:</b> Developed rule-based frameworks applying Smart Money Concepts (SMC), liquidity sweeps, and dynamic position-sizing protocols to optimize risk-adjusted returns.",
+            s["body"],
+        ),
+        Paragraph(
+            "<b>Execution &amp; Backtesting Rigor:</b> Automated multi-broker execution (TradingView, MetaTrader) using Python and Pine Script; backtested and forward-tested strategies to maintain a sub-5% maximum drawdown limit.",
+            s["body"],
+        ),
+        Paragraph(
+            "<b>Top Skills:</b> Quantitative Finance · Algorithmic Trading · Python · Pine Script · Automated Execution · API Integration (WebSockets/REST) · Risk Management",
             s["body"],
         ),
         Paragraph("SKILLS", s["h"]),

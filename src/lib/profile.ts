@@ -4,7 +4,8 @@ export const profile = {
   kicker: "Generative AI · Agentic systems · Edge vision",
   summary:
     "Principal AI & Systems Engineer with 13+ years architecting production Generative AI, real-time computer vision, agentic pipelines, and scalable enterprise platforms.",
-  location: "Federal Territory of Kuala Lumpur, Malaysia",
+  location: "Bengaluru, India",
+  onsite: "Malaysia onsite",
   email: "yoursvijii@gmail.com",
   phone: "+91 8088413589",
   phones: [

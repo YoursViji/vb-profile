@@ -35,7 +35,7 @@ export function SiteHeader() {
               VB
             </span>
             <span className="hidden font-heading text-sm tracking-tight text-zinc-100 sm:block">
-              Vijay Baskaran
+              {profile.name}
             </span>
           </a>
 

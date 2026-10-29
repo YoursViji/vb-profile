@@ -23,6 +23,7 @@ import { LinkedinMark } from "@/components/linkedin-mark";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import {
+  bring,
   certifications,
   education,
   experience,
@@ -64,13 +65,16 @@ function Hero() {
         <div className="relative">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-400/8 px-3 py-1 text-xs font-medium tracking-wide text-cyan-200 uppercase">
             <Sparkles className="size-3.5" />
-            In-store retail software
+            {profile.kicker}
           </p>
           <h1 className="font-heading text-4xl leading-[1.05] tracking-tight text-zinc-50 sm:text-5xl lg:text-6xl">
             {profile.name}
           </h1>
           <p className="mt-5 max-w-xl text-lg text-zinc-300 sm:text-xl">
             {profile.headline}
+          </p>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-400">
+            {profile.summary}
           </p>
           <p className="mt-4 flex items-center gap-2 text-sm text-zinc-400">
             <MapPin className="size-4 text-cyan-300" />
@@ -103,8 +107,8 @@ function Hero() {
         <div className="relative">
           <div className="overflow-hidden rounded-2xl ring-1 ring-cyan-300/20 shadow-[0_0_80px_-24px_rgba(34,211,238,0.55)]">
             <Image
-              src={assetPath("/work/smart-trolley.png")}
-              alt="AI-infused smart trolley with scan-and-pay screen in a grocery aisle"
+              src={assetPath("/work/ai-agentic-orchestration.jpg")}
+              alt="Generative AI multi-agent orchestration dashboard with planner, researcher, and executor agents"
               width={1600}
               height={900}
               priority
@@ -112,9 +116,23 @@ function Hero() {
             />
           </div>
           <p className="mt-3 text-xs tracking-wide text-zinc-500 uppercase">
-            Domain showcase · not a headshot
+            Agentic systems · not a headshot
           </p>
         </div>
+      </div>
+      <div className="mx-auto grid max-w-6xl gap-3 px-4 pb-16 sm:grid-cols-2 sm:px-6 lg:grid-cols-5">
+        {bring.map((item) => (
+          <Card key={item.title} className="border-0 bg-[#101c26] ring-cyan-400/12">
+            <CardHeader className="gap-2">
+              <CardTitle className="text-sm tracking-wide text-cyan-100 uppercase">
+                {item.title}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm leading-relaxed text-zinc-400">{item.copy}</p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </section>
   );
@@ -126,47 +144,58 @@ function Experience() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionKicker>Experience</SectionKicker>
         <h2 className="font-heading mt-3 text-3xl tracking-tight text-zinc-50">
-          The only role on this page
+          Roles
         </h2>
-        <Card className="mt-8 border-0 bg-[#101c26] ring-cyan-400/15">
-          <CardHeader className="gap-3">
-            <div className="flex flex-wrap items-start justify-between gap-3">
-              <div>
-                <CardTitle className="font-heading text-2xl text-zinc-50">
-                  {experience.title}
-                </CardTitle>
-                <CardDescription className="mt-1 text-base text-cyan-200/90">
-                  <a
-                    href={profile.company.href}
-                    className="underline-offset-4 hover:underline"
-                    target="_blank"
-                    rel="noreferrer"
+        <div className="mt-8 space-y-6">
+          {experience.map((role) => (
+            <Card
+              key={`${role.title}-${role.dates}`}
+              className="border-0 bg-[#101c26] ring-cyan-400/15"
+            >
+              <CardHeader className="gap-3">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <CardTitle className="font-heading text-2xl text-zinc-50">
+                      {role.title}
+                    </CardTitle>
+                    <CardDescription className="mt-1 text-base text-cyan-200/90">
+                      {role.href ? (
+                        <a
+                          href={role.href}
+                          className="underline-offset-4 hover:underline"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {role.company}
+                        </a>
+                      ) : (
+                        role.company
+                      )}
+                    </CardDescription>
+                  </div>
+                  <Badge
+                    variant="outline"
+                    className="border-cyan-400/30 bg-cyan-400/8 text-cyan-100"
                   >
-                    {experience.company}
-                  </a>
-                </CardDescription>
-              </div>
-              <Badge
-                variant="outline"
-                className="border-cyan-400/30 bg-cyan-400/8 text-cyan-100"
-              >
-                {experience.dates}
-              </Badge>
-            </div>
-            <p className="text-sm text-zinc-400">{experience.location}</p>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-zinc-300">{experience.summary}</p>
-            <ul className="space-y-3 text-zinc-300">
-              {experience.bullets.map((bullet) => (
-                <li key={bullet} className="flex gap-3">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-cyan-300" />
-                  <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
+                    {role.dates}
+                  </Badge>
+                </div>
+                <p className="text-sm text-zinc-400">{role.location}</p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-zinc-300">{role.summary}</p>
+                <ul className="space-y-3 text-zinc-300">
+                  {role.bullets.map((bullet) => (
+                    <li key={bullet} className="flex gap-3">
+                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-cyan-300" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -178,12 +207,12 @@ function Work() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionKicker>Featured work</SectionKicker>
         <h2 className="font-heading mt-3 max-w-2xl text-3xl tracking-tight text-zinc-50">
-          In-store systems, shopper apps, and the lite SDK
+          Agentic systems, RAG, vision, and edge inference
         </h2>
         <p className="mt-3 max-w-2xl text-zinc-400">
-          Product stories from the Retailetics work — kiosk, cart, recipes,
-          payments, wayfinding, ads, audit, voice, fleet ops, ezyList, and a
-          Flutter SDK for small vendors. Not extra employers.
+          Production GenAI and computer-vision work from the Retailetics stack,
+          plus the in-store products those systems ship inside. Not extra
+          employers.
         </p>
         {workGroups.map((group) => (
           <div key={group.title} className="mt-12">
@@ -443,7 +472,7 @@ function Contact() {
             )}
           >
             <FileText data-icon="inline-start" />
-            VB_Google__Resume.pdf
+            {profile.resumeLabel}
           </a>
         </div>
         <div className="mt-8 space-y-2 text-sm text-zinc-500">
